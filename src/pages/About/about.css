@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'Overpass';
+  src: url('../../assets/fonts/Overpass-ExtraBold.ttf');
+}
+@font-face {
+  font-family: 'Quick-sand';
+  src: url('../../assets/fonts/Quicksand-Regular.ttf');
+}
+@font-face {
+  font-family: 'Urbanist';
+  src: url('../../assets/fonts/Urbanist-VariableFont_wght.ttf');
+}
+
+/*MY_FONTS_LIES_ABOVE...*/
+
+/*MY_FATHER_ELEMENT_STARTS_HERE...*/
+
+#homeScreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222025;
+}
+
+/*MY_FATHER_ELEMENT_ENDS_HERE.*/
+
+/*MY_ITRODUCTION_ELEMENT_STARTS_HERE...*/
+
+#introductionDiv {
+  margin: 40px 0 40px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color:#31e91d;
+}
+
+#introductionDiv h1 {
+  font-family: "Quick-sand", Arial, sans-serif;
+  font-size: 100px;
+  padding: 0 40px;
+  margin-bottom: 20px;
+}
+
+#introductionDiv h3 {
+  font-family: "Overpass", Arial, sans-serif;
+  font-size: 30px;
+  padding: 0 40px;
+  margin: 15px 0 0 0;
+  width: 70%;
+}
+
+.whiteText {
+  font-family: "Urbanist";
+  color: white;
+  padding: 0 40px;
+  font-size: 40px;
+}
+
+/*MY_ITRODUCTION_ELEMENT_ENDS_HERE.*/
+
+/*PASS_THE_HAT_ELEMENTS_STARTS_HERE...*/
+
+.leftSideText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background-color: #31e91d;
+  margin: 40px 0;
+}
+
+.leftSideText i{
+  margin: 40px 0;
+  padding: 0 40px;
+  color: #222025;
+}
+
+.leftSideText h3 {
+  padding: 0 40px;
+  font-size: 70px;
+  color: #222025;
+  font-family: "Overpass", Helvetica, sans-serif;
+}
+
+.leftSideText p {
+  text-align: start;
+  padding: 0 40px;
+  margin-bottom: 40px;
+  font-size: 35px;
+  width: 90%;
+  color: #222025;
+  font-family: "Quick-sand", Arial, sans-serif;
+}
+
+/*PASS_THE_HAT_ELEMENTS_ENDS_HERE.*/
+
+/*MARKET_ELEMENTS_STARTS_HERE...*/
+
+.rightSideText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.rightSideText i{
+  padding: 0 40px;
+  color: #31e91d;
+}
+
+.rightSideText h3 {
+  padding: 0 40px;
+  margin: 10px 0;
+  font-size: 70px;
+  color: #31e91d;
+  font-family: "Overpass", Helvetica, sans-serif;
+}
+
+.rightSideText p {
+  text-align: end;
+  padding: 0 40px;
+  margin-bottom: 40px;
+  font-size: 35px;
+  width: 90%;
+  color: #31e91d;
+  font-family: "Quick-sand", Arial, sans-serif;
+}
+
+/*MARKET_ELEMENTS_ENDS_HERE.*/
+
+/*MY_SCROLL_UP_DIV_STARTS_HERE...*/
+
+.scrollUpDiv {
+  background: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/*MY_SCROLL_UP_DIV_ENDS_HERE.*/

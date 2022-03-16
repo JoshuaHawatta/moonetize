@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Overpass';
+  src: url('../../assets/fonts/Overpass-ExtraBold.ttf');
+}
+@font-face {
+  font-family: 'Quick-sand';
+  src: url('../../assets/fonts/Quicksand-Regular.ttf');
+}
+@font-face {
+  font-family: 'Urbanist';
+  src: url('../../assets/fonts/Urbanist-VariableFont_wght.ttf');
+}
+
+/*MY_FONTS_LIES_ABOVE...*/
+
+/*MY_FATHER_ELEMENT_STARTS_HERE...*/
+
+#headerBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #222025;
+}
+
+/*MY_FATHER_ELEMENT_ENDS_HERE.*/
+
+/*MY_LOGO_ELEMENTS_STARTS_HERE...*/
+
+#logoSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+#mootyLogo {
+  margin: 10px;
+  background-color: #31e91d;
+  padding: 15px;
+  width: 90px;
+  border-radius: 50%;
+}
+
+#logoName {
+  font-family: "Quick-sand", arial, sans-serif;
+  font-size: 50px;
+  margin: 15px;
+  color:#31e91d;
+}
+
+/*MY_LOGO_ELEMENTS_ENDS_HERE.*/
+
+/*MY_NAV_BAR_ELEMENTS_STARTS_HERE...*/
+
+#navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 25px;
+}
+
+#navBar a{
+  font-family: "Overpass", arial, sans-serif;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 15px;
+  color:#31e91d;
+  border: 2px solid #31e91d;
+  transition: all 0.2s;
+}
+#navBar a:hover{
+  color: #222025;
+  background-color:#31e91d;
+}
+
+/*MY_NAV_BAR_ELEMENTS_ENDS_HERE.*/

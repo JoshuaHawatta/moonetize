@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*
+main > section, main > article {
+  padding: 0 10rem;
+}
+*/
+
+/*
+  GREEN_COLOR: #31e91d;
+  GREY_COLOR: #222025;
+  RED_COLOR: #c30101;
+  WHITE_COLOR: #FFFFFF;
+*/

@@ -1,0 +1,13 @@
+#scrollBtn {
+  color: #FFFFFF;
+  background: none;
+  border: none;
+  margin: 40px;
+  transition: all 0.2s;
+}
+#scrollBtn:hover {
+  cursor: pointer;
+  color: #31e91d;
+}
+
+/*MY_SCROLL_UP_BUTTON_CSS_LIES_ABOVE...*/
