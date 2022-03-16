@@ -5,7 +5,7 @@ const Header = () => {
   return(
     <header id='headerBar'>
       <section id='logoSection'>
-        <img src={ require('../../assets/images/logo.png') } alt='Mooty-logo' id='mootyLogo' />
+        <img src={ require('../../assets/images/logo-with-background.png') } alt='Mooty-logo' id='mootyLogo' />
         <h1 id='logoName'>Mooty</h1>
       </section>
       <nav id='navBar'>
