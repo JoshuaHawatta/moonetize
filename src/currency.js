@@ -1,5 +1,4 @@
-import IntlCurrencyInput from "react-intl-currency-input";
-import { useState } from "react";
+import IntlCurrencyInput from 'react-intl-currency-input';
 
 const currencyConfig = {
   locale: "pt-BR",
@@ -15,23 +14,16 @@ const currencyConfig = {
   },
 };
 
-const BrlCurrencyComponent = props => {
+const BrlCurrencyComponent = () => {
+
   const handleChange = (event, value, maskedValue) => {
     event.preventDefault();
-    let name = event.target.getAttribute('name')
-    localStorage.setItem(name, `${value};${maskedValue}`)
+    localStorage.setItem('user-money', JSON.stringify([value, maskedValue]))
   };
 
   return(
-    <IntlCurrencyInput 
-      currency="BRL" 
-      config={currencyConfig}
-      name='totalMoney'
-      onChange={handleChange}
-      value={props.setValue} />
+    <IntlCurrencyInput currency="BRL" config={ currencyConfig } onChange={ handleChange } />
   );
 }
 
 export default BrlCurrencyComponent;
-
-//LINK DOCUMENTAÇÃO LIB:https://github.com/thiagozanetti/react-intl-currency-input

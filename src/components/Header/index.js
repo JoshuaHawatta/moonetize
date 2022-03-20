@@ -3,15 +3,15 @@ import './header.css';
 
 const Header = () => {
   return(
-    <header class="navbar">
-      <div class="nav-brand">
+    <header className="navbar">
+      <div className="nav-brand">
         <img src={ require('../../assets/images/logo-with-background.png') } alt='Mooty logo' />
-        <h1 class="nav-title">Mooty</h1>
+        <h1 className="nav-title">Moonetize</h1>
       </div>
-      <nav class='nav-links'>
+      <nav className='nav-links'>
         <Link to='/'>Minha conta</Link>
         <Link to='/pass-the-hat'>Vaquinha</Link>
-        <Link to='/market'>Mercado</Link>
+        <Link to='/cart'>Carrinho</Link>
         <Link to='/about'>Sobre</Link>
       </nav>
     </header> 
