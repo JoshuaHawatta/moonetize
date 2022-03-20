@@ -3,12 +3,12 @@ import './header.css';
 
 const Header = () => {
   return(
-    <header id='headerBar'>
-      <section id='logoSection'>
-        <img src={ require('../../assets/images/logo-with-background.png') } alt='Mooty-logo' id='mootyLogo' />
-        <h1 id='logoName'>Mooty</h1>
-      </section>
-      <nav id='navBar'>
+    <header class="navbar">
+      <div class="nav-brand">
+        <img src={ require('../../assets/images/logo-with-background.png') } alt='Mooty logo' />
+        <h1 class="nav-title">Mooty</h1>
+      </div>
+      <nav class='nav-links'>
         <Link to='/'>Minha conta</Link>
         <Link to='/pass-the-hat'>Vaquinha</Link>
         <Link to='/market'>Mercado</Link>

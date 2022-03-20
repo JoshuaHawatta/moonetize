@@ -9,9 +9,9 @@ const App = () => {
   return(
     <Router>
       <Header />
-      <article className="App">
+      <main className="App">
         <PAGES_URLS />
-      </article>
+      </main>
       <Footer />
     </Router>
   )

@@ -11,8 +11,8 @@ const ScrollUpButton = () => {
   return (
     <button 
       onClick={ scrollUp } 
-      id='scrollBtn'> 
-      <i className="fa-solid fa-circle-up fa-5x"></i> 
+      class="btn btn-scroll"> 
+      <i className="fa-solid fa-circle-chevron-up fa-5x"></i> 
     </button>
   )
 }

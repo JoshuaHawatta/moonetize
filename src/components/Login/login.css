@@ -1,101 +1,75 @@
-@font-face {
-  font-family: 'Overpass';
-  src: url('../../assets/fonts/Overpass-ExtraBold.ttf');
-}
-@font-face {
-  font-family: 'Quick-sand';
-  src: url('../../assets/fonts/Quicksand-Regular.ttf');
-}
-@font-face {
-  font-family: 'Urbanist';
-  src: url('../../assets/fonts/Urbanist-VariableFont_wght.ttf');
+.headline-2 {
+  font-size: 48px;
+  margin: 5px 0;
 }
 
-/*MY_FONTS_LIES_ABOVE...*/
+.text-primary-color {
+  color: var(--theme-color);
+}
 
-/*MY_FATHER_ELEMENT_STARTS_HERE...*/
-
-#loginSection {
+.cover,
+.field-group,
+.field-group .field {
   display: flex;
+}
+
+.cover,
+.field-group {
   flex-direction: column;
+}
+
+.cover {  
   align-items: center;
-  text-align: left;
-  width: 100%;
-  height: 75vh;
-  background-color: #222025;
-}
-
-/*MY_FATHER_ELEMENT_ENDS_HERE.*/
-
-
-/*MY_INPUTS_AND_LABELS_FATHER_ELEMENT_STARTS_HERE...*/
-
-.inputDiv {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 20px;
+  background: var(--background-color);
+  height: 100vh;
+}
+
+.field-group {
   width: 100%;
-  height: 30%;
+  padding: 20px;
 }
 
-/*MY_INPUTS_AND_LABELS_FATHER_ELEMENT_ENDS_HERE.*/
+.field {
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
 
-/*MY_LABEL_ELEMENTS_STARTS_HERE...*/
-
-.labels {
-  font-family: 'Urbanist', Arial sans-serif;
+.field .labels {
   font-size: 30px;
-  text-align: left;
-  width: 35%;
-  color: #31e91d;
-  margin: 30px;
+  color: var(--theme-color);
 }
 
-/*MY_LABEL_ELEMENTS_ENDS_HERE.*/
-
-/*MY_INPUT_ELEMENTS_STARTS_HERE...*/
-
-.inputDiv input {
-  text-align: left;
-  font-family: 'Quick-Sand', Arial, sans-serif;
+.field input {
+  width: 100%;
   background: none;
   outline: none;
   border: none;
-  font-size: 20px;
-  padding: 25px 0;
-  width: 35%;
   height: 20px;
-  color: #31e91d;
-  border-bottom: 2px solid #31e91d;
+  font-size: 20px;
+  padding: 20px 10px;
   transition: all 0.2s ease;
+  color: var(--theme-color);
+  border-bottom: 2px solid var(--theme-color);
 }
-.inputDiv input:focus{
+
+.field input:focus{
   font-size: 25px;
-  border-bottom: 2px solid #31e91d;
 }
 
-/*MY_INPUT_ELEMENTS_ENDS_HERE.*/
-
-/*MY_LOGIN_BUTTON_STARTS_HERE...*/
-
-#loginBtn {
-  font-family: 'Overpass', Arial, sans-serif;
+.btn {
   font-size: 15px;
-  background: none;
-  margin: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  color: #31e91d;
-  border: 2px solid #31e91d;
+  margin: 10px;
+  padding: 25px;
   transition: all 0.2s;
+  color: var(--theme-color);
+  background-color: var(--background-color);
+  border: 2px solid var(--theme-color);
 }
-#loginBtn:hover {
+
+.btn:hover {
   cursor: pointer;
-  color: #222025;
-  background-color: #31e91d;
+  color: var(--background-color);
+  background-color: var(--theme-color);
 }
-
-/*MY_LOGIN_BUTTON_ENDS_HERE.*/
-

@@ -1,49 +1,34 @@
-@font-face {
-  font-family: 'Overpass';
-  src: url('../../assets/fonts/Overpass-ExtraBold.ttf');
-}
-@font-face {
-  font-family: 'Quick-sand';
-  src: url('../../assets/fonts/Quicksand-Regular.ttf');
-}
-@font-face {
-  font-family: 'Urbanist';
-  src: url('../../assets/fonts/Urbanist-VariableFont_wght.ttf');
-}
-
-/*MY_FONTS_LIES_ABOVE...*/
-
-/*MY_FATHER_ELEMENT_STARTS_HERE...*/
-
-#footerContent {
+footer,
+.social-media {
   display: flex;
-  flex-direction: row;
+}
+
+footer {
   align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  background-color: #31e91d;
-  padding: 15px;
+  justify-content: center;
+  background-color: var(--theme-color);
+  padding: 10px;
 }
 
-/*MY_FATHER_ELEMENT_ENDS_HERE.*/
+.social-media,
+.social-media a {
+  color: var(--background-color);
+}
 
-/*MY_SOCIAL_MEDIAS_DIVS_AND_ELEMENTS__STARTS_HERE...*/
-
-.socialMedias {
-  display: flex;
+.social-media {
+  opacity: .8;
   flex-direction: column;
-  align-items: center;
   text-align: center;
-  width: 100%;
-  color: #222025;
+  margin: 0 15px;
+  transition: opactiy linear .2s;
 }
 
-.socialMedias a{
-  font-size: 15px;
-  font-family: 'Overpass', Arial, sans-serif;
-  margin: 10px 0;
-  color: #222025;
-  text-decoration: none;
+.social-media:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
-/*MY_SOCIAL_MEDIAS_DIVS_AND_ELEMENTS__ENDS_HERE.*/
+.social-media a {
+  font-size: 14px;
+  margin: 5px 0;
+}
