@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import AboutJSX from './pages/About';
 import SignOrLogin from './components/Login';
 import CartJSX from './pages/Cart';
+import PassTheHatJSX from './pages/PassTheHat';
 
 const PAGES_URLS = () => {
   return(
