@@ -9,8 +9,8 @@ DESCRIÇÃO:
 
     - Vaquinha:
         A funcionalidade da Vaquinha permite que você informe quanto deu os gastos totais e quantas pessoas irão pagar junto de você, dividindo igualmente para todos.
-    - Mercado:
-        Já no Mercado, você tem algo semlhante à uma lista de tarefas, a diferença é a possibilidade de ir adicionando produtos, a quantidade e já mostrar em tempo real o quanto você já gastou, tornando impossível você estourar seu orçamento!
+    - Carrinho:
+        No Carrinho, você tem uma lista para adicionar produtos, o preço e quantidade e já mostrar em tempo real o quanto você já gastou, tornando impossível você estourar seu orçamento!
 
 
 - QUANDO USAR?
