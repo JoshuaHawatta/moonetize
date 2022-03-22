@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const HubJSX = () => {
+const MoonetizeJSX = () => {
   const [user, setUser] = useState([]);
   
     console.log(localStorage)
@@ -9,4 +9,4 @@ const HubJSX = () => {
     )
 }
 
-export default HubJSX;
+export default MoonetizeJSX;
