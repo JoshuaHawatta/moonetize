@@ -1,0 +1,72 @@
+.headline-2 {
+  font-size: 48px;
+  margin: 5px 0;
+}
+
+.text-primary-color {
+  color: var(--theme-color);
+}
+
+.cover, .field-group, .field-group .field {
+  display: flex;
+}
+
+.cover, .field-group {
+  flex-direction: column;
+}
+
+.cover {  
+  align-items: center;
+  justify-content: center;
+  background: var(--background-color);
+  height: 100vh;
+}
+
+.field-group {
+  width: 100%;
+  padding: 20px;
+}
+
+.field {
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
+
+.field .labels {
+  font-size: 30px;
+  color: var(--theme-color);
+}
+
+.field input {
+  width: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  height: 20px;
+  font-size: 20px;
+  padding: 20px 10px;
+  transition: all 0.2s ease;
+  color: var(--theme-color);
+  border-bottom: 2px solid var(--theme-color);
+}
+
+.field input:focus{
+  font-size: 25px;
+}
+
+.btn {
+  font-size: 15px;
+  margin: 10px;
+  padding: 25px;
+  transition: all 0.2s;
+  color: var(--theme-color);
+  background-color: var(--background-color);
+  border: 2px solid var(--theme-color);
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: var(--background-color);
+  background-color: var(--theme-color);
+}
