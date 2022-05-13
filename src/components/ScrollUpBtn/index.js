@@ -1,19 +1,11 @@
 import './button.css';
+import { IoIosArrowUp } from 'react-icons/io';
 
 const ScrollUpButton = () => {
-  const scrollUp = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
+  const scrollUp = () => window.scrollTo({ top: 0,behavior: 'smooth' })
 
   return (
-    <button 
-      onClick={ scrollUp } 
-      className="btn btn-scroll"> 
-      <i className="fa-solid fa-circle-chevron-up fa-5x"></i> 
-    </button>
+    <button onClick={ scrollUp } className="btn-scroll"><IoIosArrowUp /></button>
   )
 }
 

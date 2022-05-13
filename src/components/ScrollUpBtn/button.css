@@ -1,13 +1,13 @@
-.btn.btn-scroll {
-  color: #FFFFFF;
-  background: none;
+.btn-scroll {
   border: none;
-  margin: 40px;
+  background: none;
+  font-size: 5rem;
+  padding: 0 2rem;
+  color: #FFFFFF;
   transition: all 0.2s;
 }
 
-.btn.btn-scroll:hover {
+.btn-scroll:hover {
   cursor: pointer;
   color: var(--theme-color);
-  background-color: var(--background-color);
 }
