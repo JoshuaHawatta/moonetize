@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import IntlCurrencyInput from 'react-intl-currency-input';
+import { LoggedUserContext } from './contexts/Logged-user';
 
 const currencyConfig = {
   locale: "pt-BR",
@@ -15,10 +17,11 @@ const currencyConfig = {
 };
 
 const BrlCurrencyComponent = () => {
+  const { setUserMoney } = useContext(LoggedUserContext);
 
   const handleChange = (event, value, maskedValue) => {
     event.preventDefault();
-    localStorage.setItem('user-money', JSON.stringify([value, maskedValue]))
+    setUserMoney([value, maskedValue])
   };
 
   return(
