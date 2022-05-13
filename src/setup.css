@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Overpass';
+  src: url('assets/fonts/Overpass-ExtraBold.ttf');
+}
+@font-face {
+  font-family: 'Quick-sand';
+  src: url('assets/fonts/Quicksand-Regular.ttf');
+}
+@font-face {
+  font-family: 'Urbanist';
+  src: url('assets/fonts/Urbanist-VariableFont_wght.ttf');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quick-sand", arial, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --theme-color: #31e91d;
+  --background-color: #222025;
+}
+
+::-webkit-scrollbar {
+  background: #FFFFFF;
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+}
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+a, button {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/*
+  GREEN_COLOR: #31e91d;
+  GREY_COLOR: #222025;
+  RED_COLOR: #c30101;
+  WHITE_COLOR: #FFFFFF;
+*/
