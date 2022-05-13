@@ -1,20 +1,29 @@
+import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import './footer.css';
 
 const Footer = () => {
   return(
     <footer>
-      <div className='social-media' id='social-whatsapp'>
-        <i className='fa-brands fa-whatsapp fa-2x'></i>
-        <a href='https://wa.me/5561998784278' target='_blank'>WhatsApp</a>
+      <a href='https://www.linkedin.com/in/joshua-hawatta' target='_blank' rel='norefferer'>
+        Feito por Joshua Hawatta
+      </a>
+
+      <div className='social-media'>
+        <a href='https://www.linkedin.com/in/joshua-hawatta' target='_blank'rel='norefferer'>
+          <BsLinkedin className='icons' />
+          LinkedIn</a>
+
+        <a href='https://www.instagram.com/joshuahawatta' target='_blank' rel='norefferer'>
+          <BsInstagram className='icons' />
+          Instagram</a>
+
+        <a href='https://github.com/JoshuaHawatta' target='_blank' rel='norefferer'>
+          <BsGithub className='icons' />
+          GitHub</a>
       </div>
-      <div className='social-media' id='social-instagram'>
-        <i className='fa-brands fa-instagram fa-2x'></i>
-        <a href='https://www.instagram.com/joshuahawatta/' target='_blank'>Instagram</a>
-      </div>
-      <div className='social-media' id='social-github'>
-        <i className='fa-brands fa-github fa-2x'></i>
-        <a href='https://github.com/JoshuaHawatta' target='_blank'>GitHub</a>
-      </div>
+
+      <Link to='/privacy-policy' rel='norefferer'>Política de privacidade</Link>
     </footer>
   )
 }
