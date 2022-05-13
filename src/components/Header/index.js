@@ -3,16 +3,17 @@ import './header.css';
 
 const Header = () => {
   return(
-    <header className="navbar">
-      <div className="nav-brand">
-        <img src={ require('../../assets/images/logo-with-background.png') } alt='Mooty logo' />
-        <h1 className="nav-title">Moonetize</h1>
+    <header>
+      <div className="logo-div">
+        <img src={ require('../../assets/images/logo-with-background.png') } alt='Moonetize-logo' />
+        <Link to='/'>Moonetize</Link>
       </div>
+      
       <nav className='nav-links'>
-        <Link to='/'>Minha conta</Link>
+        <Link to='/'>Home</Link>
         <Link to='/pass-the-hat'>Vaquinha</Link>
         <Link to='/cart'>Carrinho</Link>
-        <Link to='/about'>Sobre</Link>
+        <Link to='/about'>Quem somos</Link>
       </nav>
     </header> 
   )
