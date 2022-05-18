@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "react-icons": "^4.3.1",
-    "react-intl-currency-input": "^0.2.6"
+    "react-intl-currency-input": "^0.2.6",
+    "styled-components": "^5.3.5"
   }
 }
