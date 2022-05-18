@@ -4,7 +4,7 @@ import './header.css';
 const Header = () => {
   return(
     <header>
-      <div className="logo-div">
+      <div className='logo-div'>
         <img src={ require('../../assets/images/logo-with-background.png') } alt='Moonetize-logo' />
         <Link to='/'>Moonetize</Link>
       </div>
