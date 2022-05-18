@@ -22,6 +22,10 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  background-color: var(--background-color);
+}
+
 :root {
   --theme-color: #31e91d;
   --background-color: #222025;
@@ -51,9 +55,35 @@ a, button {
   cursor: pointer;
 }
 
+/*ANIMATIONS*/
+@keyframes fillBackground {
+  0%{
+    width: 0vw;
+   }
+
+   25% {
+    width: 50vw;
+    background-color: var(--theme-color);
+   }
+
+   100%{
+    width: 100%;
+    background-color: var(--theme-color);
+  }
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(-180deg);
+  }
+
+  100%{
+    transform: none;
+  }
+}
+
 /*
   GREEN_COLOR: #31e91d;
   GREY_COLOR: #222025;
   RED_COLOR: #c30101;
-  WHITE_COLOR: #FFFFFF;
 */
