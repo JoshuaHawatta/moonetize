@@ -5,7 +5,9 @@ const ScrollUpButton = () => {
   const scrollUp = () => window.scrollTo({ top: 0,behavior: 'smooth' })
 
   return (
-    <button onClick={ scrollUp } className="btn-scroll"><IoIosArrowUp /></button>
+    <div className='scrollUpDiv'>
+      <button onClick={ scrollUp } className="btn-scroll"><IoIosArrowUp /></button>
+    </div>
   )
 }
 

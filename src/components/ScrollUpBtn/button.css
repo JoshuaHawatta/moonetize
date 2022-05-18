@@ -1,4 +1,11 @@
-.btn-scroll {
+.scrollUpDiv {
+  background: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.scrollUpDiv > .btn-scroll {
   border: none;
   background: none;
   font-size: 5rem;
@@ -7,7 +14,7 @@
   transition: all 0.2s;
 }
 
-.btn-scroll:hover {
+.scrollUpDiv > .btn-scroll:hover {
   cursor: pointer;
   color: var(--theme-color);
 }
