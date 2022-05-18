@@ -5,7 +5,6 @@ article {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-color);
 }
 
 .introductionDiv {
@@ -94,12 +93,4 @@ article {
 .rightSideText > p {
   text-align: end;
   color: var(--theme-color);
-}
-
-/*SCROLL_UP_BUTTON_COMPONENT_DIV*/
-.scrollUpDiv {
-  background: none;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
 }
