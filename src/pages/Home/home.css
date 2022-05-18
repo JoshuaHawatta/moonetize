@@ -1,0 +1,47 @@
+/*FLEXBOX*/
+.user-hub-div, .user-data {
+  display: flex;
+}
+
+.user-hub-div {
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 4rem;
+}
+
+.user-data {
+  flex-direction: column;
+  max-width: 25vw;
+}
+
+.hide-or-show-money-icon {
+  max-width: 75vw;
+}
+
+/*COLORS*/
+.user-data h1, p, .hide-or-show-money-icon > .eye-icon {
+  color: var(--theme-color);
+  font-family: 'Overpass';
+}
+
+/*ELEMENTS*/
+.user-data > h1 {
+  font-size: 4rem;
+}
+
+.user-data > p {
+  font-size: 2.5rem;
+}
+
+.hide-or-show-money-icon > .eye-icon {
+  font-size: 3rem;
+  animation: spin 0.3s ease-in forwards;
+  cursor: pointer;
+  transition: 0.2s ease;
+  color: #FFFFFF;
+}
+
+/*EFFECTS*/
+.hide-or-show-money-icon > .eye-icon:hover {
+  color: var(--theme-color);
+} 
