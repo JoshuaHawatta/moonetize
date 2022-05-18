@@ -23,9 +23,7 @@ const AboutJSX = () => {
           <p>Já saiu e não queria gastar muito? Também resolvemos isso! Anote o nome, quantidade e preço do produto e nós fazemos o resto!</p>
         </div>
 
-        <div className='scrollUpDiv'>
-          <ScrollUpButton />
-        </div>  
+        <ScrollUpButton /> 
       </article>
   )
 }
