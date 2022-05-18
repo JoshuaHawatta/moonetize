@@ -1,5 +1,9 @@
-header {
+/*FLEXBOX*/
+header, .logo-div, .nav-links {
   display: flex;
+}
+
+header {
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
@@ -8,17 +12,26 @@ header {
 }
 
 .logo-div {
-  display: flex;
   align-items: center;
   padding: 1rem 2rem;
   max-width: 25vw;
 }
 
+.nav-links {
+  align-items: flex-end;
+  padding: 0 2rem;
+}
+
+/*COLORS*/
+.logo-div > a, .nav-links a {
+  color: var(--theme-color);
+}
+
+/*ELEMENTS*/
 .logo-div > a {
   font: 5rem 'Quick-sand', Arial, sans-serif;
   text-decoration: none;
   margin: 0.5rem;
-  color: var(--theme-color);
 }
 
 .logo-div img {
@@ -26,21 +39,16 @@ header {
   margin: 0.5rem;
 }
 
-.nav-links {
-  display: flex;
-  align-items: flex-end;
-  padding: 0 2rem;
-}
-
 .nav-links a {
   font: 1.5rem 'Overpass', Arial, sans-serif;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
   max-width: 75vw;
   transition: all 0.2s;
   border-radius: 0.5rem;
-  color: var(--theme-color);
 }
 
+/*EFFECTS*/
 .nav-links a:focus, .nav-links a:hover {
   color: var(--background-color);
   background-color: var(--theme-color);
