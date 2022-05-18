@@ -15,7 +15,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Quick-sand", arial, sans-serif;
+  font-family: 'Quick-sand', arial, sans-serif;
 }
 
 html {
@@ -61,7 +61,7 @@ a, button {
     width: 0vw;
    }
 
-   25% {
+   25%{
     width: 50vw;
     background-color: var(--theme-color);
    }
@@ -69,6 +69,21 @@ a, button {
    100%{
     width: 100%;
     background-color: var(--theme-color);
+  }
+}
+
+@keyframes spinCard {
+  0%{
+    transform: scaleX(-1);
+  }
+
+  50%{
+    transform: none;
+  }
+
+   100%{
+    transform: scaleX(1);
+    border: 0.2rem solid #FFFFFF;
   }
 }
 
