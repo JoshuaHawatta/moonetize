@@ -4,7 +4,16 @@ import { LoggedUserContext } from '../../contexts/Logged-user';
 import { ShowMoneyAmmountContext } from '../../contexts/ShowMoney';
 import LoginPage from '../../components/Login';
 import { FaMoneyCheckAlt, FaShoppingCart, FaEye, FaEyeSlash } from 'react-icons/fa';
-import './home.css';
+
+import {
+  MainWrapper, 
+  UserHubSection, 
+  UserDataDiv, 
+  HideOrShowMoneyDiv, 
+  FunctionalitiesSection,
+  FunctionalityDiv
+} from './styles.js';
+
 
 const HomeJSX = () => {
   const userNameData = JSON.parse(sessionStorage.getItem('User'));
@@ -17,40 +26,40 @@ const HomeJSX = () => {
     )
   }else {
     return (
-      <main>
-        <div className='user-hub-div'>
-          <div className='user-data'>
+      <MainWrapper>
+        <UserHubSection>
+          <UserDataDiv>
             <h1>Olá, { userNameData }!</h1>
             <p>{ showMoneyAmmount ? userMoney[1] : '****' }</p>
-          </div>
+          </UserDataDiv>
   
-          <div className='hide-or-show-money-icon'>
+          <HideOrShowMoneyDiv>
             { showMoneyAmmount 
-              ? <FaEye className='eye-icon open' onClick={ () => setShowMoneyAmmount(false) } /> 
-              : <FaEyeSlash className='eye-icon shut' onClick={ () => setShowMoneyAmmount(true) } /> 
+              ? <FaEye onClick={ () => setShowMoneyAmmount(false) } /> 
+              : <FaEyeSlash onClick={ () => setShowMoneyAmmount(true) } /> 
             }
-          </div>
-        </div>
+          </HideOrShowMoneyDiv>
+        </UserHubSection>
 
-        <div className='functionalities'>
-          <div className='functionality'>
-            <Link to='/pass-the-hat'>
+        <FunctionalitiesSection>
+          <Link to='/pass-the-hat'>
+            <FunctionalityDiv>
               <FaMoneyCheckAlt />
               <h2>Vaquinha</h2>
-              <span>Ver quanto preciso dar da minha parte.</span>
-            </Link>
-          </div>
-  
-          <div className='functionality'>
-            <Link to='cart'>
+              <span>Calcular minha parte dos gastos.</span>
+            </FunctionalityDiv>
+          </Link>
+
+          <Link to='/cart'>
+            <FunctionalityDiv>
               <FaShoppingCart />
               <h2>Carrinho</h2>
-              <span>Ver quanto preciso já gastei.</span>
-            </Link>
-          </div>
+              <span>Ver quanto já gastei.</span>
+            </FunctionalityDiv>
+          </Link>
 
-        </div>
-      </main>
+        </FunctionalitiesSection>
+      </MainWrapper>
     )
   }
 }
