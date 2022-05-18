@@ -1,1 +1,1 @@
-export const nameRegex = /\w{2,}/;
+export const nameRegex = /\w+/;
