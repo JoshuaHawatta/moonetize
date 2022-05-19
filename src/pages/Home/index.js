@@ -1,4 +1,4 @@
-import { useContext, memo } from 'react';
+import { useContext, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { LoggedUserContext } from '../../contexts/Logged-user';
 import { ShowMoneyAmmountContext } from '../../contexts/ShowMoney';
@@ -14,11 +14,14 @@ import {
   FunctionalityDiv
 } from './styles.js';
 
-
 const HomeJSX = () => {
   const userNameData = JSON.parse(sessionStorage.getItem('User'));
   const { userIsLogged, userMoney } = useContext(LoggedUserContext);
   const { showMoneyAmmount, setShowMoneyAmmount } = useContext(ShowMoneyAmmountContext);
+
+  const changeMoneyVisibility = useCallback(() => {
+    showMoneyAmmount ? setShowMoneyAmmount(false) : setShowMoneyAmmount(true);
+  }, [showMoneyAmmount])
 
   if(!userIsLogged && sessionStorage.length === 0) {
     return(
@@ -35,8 +38,8 @@ const HomeJSX = () => {
   
           <HideOrShowMoneyDiv>
             { showMoneyAmmount 
-              ? <FaEye onClick={ () => setShowMoneyAmmount(false) } /> 
-              : <FaEyeSlash onClick={ () => setShowMoneyAmmount(true) } /> 
+              ? <FaEye onClick={ changeMoneyVisibility } /> 
+              : <FaEyeSlash onClick={ changeMoneyVisibility } /> 
             }
           </HideOrShowMoneyDiv>
         </UserHubSection>
