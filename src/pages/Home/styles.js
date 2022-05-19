@@ -17,8 +17,8 @@ export const UserDataDiv = styled.div `
   max-width: 25vw;
 
   h1, p {
-    color: var(--theme-color);
     font-family: 'Overpass', Arial, sans-serif;
+    color: var(--theme-color);
   }
 
   h1 {
@@ -38,7 +38,7 @@ export const HideOrShowMoneyDiv = styled.div `
 
   svg {
     font-size: 3rem;
-    animation: spin 0.3s ease-in forwards;
+    animation: pulse .3s ease-in forwards;
     cursor: pointer;
     transition: 0.2s ease;
     color: #FFFFFF;
@@ -87,7 +87,7 @@ export const FunctionalityDiv = styled.div `
   }
 
   span {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   svg {
