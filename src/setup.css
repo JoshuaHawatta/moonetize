@@ -87,13 +87,17 @@ a, button {
   }
 }
 
-@keyframes spin {
+@keyframes pulse {
   0%{
-    transform: rotate(-180deg);
+    transform: scale(0);
   }
 
-  100%{
-    transform: none;
+  50%{
+    transform: scale(1.2);
+  }
+
+   100%{
+    transform: scaleX(1);;
   }
 }
 
