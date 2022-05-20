@@ -15,8 +15,10 @@ import {
 } from './styles.js';
 
 const HomeJSX = () => {
-  const userNameData = JSON.parse(sessionStorage.getItem('User'));
-  const { userIsLogged, userMoney } = useContext(LoggedUserContext);
+  const userData = JSON.parse(sessionStorage.getItem('User')) || [];
+  const { userName, userMoney } = userData;
+
+  const { userIsLogged } = useContext(LoggedUserContext);
   const { showMoneyAmmount, setShowMoneyAmmount } = useContext(ShowMoneyAmmountContext);
 
   const changeMoneyVisibility = useCallback(() => {
@@ -32,7 +34,7 @@ const HomeJSX = () => {
       <MainWrapper>
         <UserHubSection>
           <UserDataDiv>
-            <h1>Olá, { userNameData }!</h1>
+            <h1>Olá, { userName }!</h1>
             <p>{ showMoneyAmmount ? userMoney[1] : '****' }</p>
           </UserDataDiv>
   
@@ -57,7 +59,7 @@ const HomeJSX = () => {
             <FunctionalityDiv>
               <FaShoppingCart />
               <h2>Carrinho</h2>
-              <span>Ver quanto já gastei.</span>
+              <span>Fazer minha lista de compras.</span>
             </FunctionalityDiv>
           </Link>
 
