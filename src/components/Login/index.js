@@ -2,47 +2,47 @@ import { memo, useState, useContext } from 'react';
 import BrlCurrencyComponent from '../../currency';
 import { LoggedUserContext } from '../../contexts/Logged-user';
 import { nameRegex } from './regex.js';
-import './login.css';
+import { LoginSection, InputFieldDiv, Field } from './styles.js';
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
-  const { setUserIsLogged, userName, setUserName } = useContext(LoggedUserContext);
+  const { setUserIsLogged, userName, setUserName, userMoney } = useContext(LoggedUserContext);
 
   const logUser = () => {
     if(nameRegex.test(userName)) {
-      sessionStorage.setItem('User', JSON.stringify(userName));
       setUserIsLogged(true);
+      sessionStorage.setItem('User', JSON.stringify({ userName, userMoney }));
     }else {
-      setErrorMessage('Você precisa de no mínimo 2 caractéres para fazer o login!');
+      setErrorMessage('Você precisa de no mínimo 1 caractér para fazer o login!');
       return
     }
   }
 
   return(
-    <section className='login-section'>
+    <LoginSection>
       <h2>Antes de Começar...</h2>
-      <div className="field-group">
 
-        <div className='field'>
-          <label className='labels' htmlFor='nameInput'>Me fala seu nome!</label>
+      <InputFieldDiv>
+        <Field>
+          <label htmlFor='nameInput'>Me fala seu nome!</label>
           <input 
             type='text'
             autoComplete='off'
-            placeholder='Exemplo: Zé da silva'
+            placeholder='Exp: Zé'
             onChange={ e => setUserName(e.target.value) }
-            value={ userName }
-            id='nameInput' />
+            value={ userName } />
             <span className='errorMessage'>{ errorMessage }</span>
-        </div>
+        </Field>
 
-        <div className='field'>
-          <label className='labels' htmlFor='moneyInput'>Você vai gastar quanto?</label>
-            <BrlCurrencyComponent placeholder='R$' id='moneyInput' />
-        </div>
+        <Field>
+          <label htmlFor='moneyInput'>Você vai gastar quanto?</label>
+            <BrlCurrencyComponent placeholder='R$' />
+        </Field>
+        
+        <button onClick={ logUser }>Vamos Começar!</button>
+      </InputFieldDiv>
 
-        <button className="btn" onClick={ logUser }>Vamos Começar!</button>
-      </div>
-    </section>
+    </LoginSection>
   )
 }
 
