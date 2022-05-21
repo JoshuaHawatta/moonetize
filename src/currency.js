@@ -16,7 +16,7 @@ const currencyConfig = {
   },
 };
 
-const BrlCurrencyComponent = () => {
+export const BRL_LOGIN_CURRENCY = () => {
   const { setUserMoney } = useContext(LoggedUserContext);
 
   const handleChange = (event, value, maskedValue) => {
@@ -25,8 +25,10 @@ const BrlCurrencyComponent = () => {
   };
 
   return(
-    <IntlCurrencyInput currency="BRL" config={ currencyConfig } onChange={ handleChange } />
-  );
+    <IntlCurrencyInput 
+      currency="BRL" 
+      name='login-currency'
+      config={ currencyConfig } 
+      onChange={ handleChange } />
+  )
 }
-
-export default BrlCurrencyComponent;
