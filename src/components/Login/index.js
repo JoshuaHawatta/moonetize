@@ -1,22 +1,25 @@
-import { memo, useState, useContext } from 'react';
-import BrlCurrencyComponent from '../../currency';
-import { LoggedUserContext } from '../../contexts/Logged-user';
+import { memo, useState, useContext, useCallback } from 'react';
 import { nameRegex } from './regex.js';
+import { BRL_LOGIN_CURRENCY } from '../../currency';
+import { ShowOrHideHeaderContext } from '../../contexts/DisplayHeader';
+import { LoggedUserContext } from '../../contexts/Logged-user';
 import { LoginSection, InputFieldDiv, Field } from './styles.js';
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
-  const { setUserIsLogged, userName, setUserName, userMoney } = useContext(LoggedUserContext);
+  const { setLoggedUser, userName, setUserName, userMoney } = useContext(LoggedUserContext);
+  const { setDisplayHeader } = useContext(ShowOrHideHeaderContext);
 
-  const logUser = () => {
+  const handleLogUser = useCallback(() => {
     if(nameRegex.test(userName)) {
-      setUserIsLogged(true);
+      setLoggedUser(true);
+      setDisplayHeader(true);
       sessionStorage.setItem('User', JSON.stringify({ userName, userMoney }));
     }else {
       setErrorMessage('Você precisa de no mínimo 1 caractér para fazer o login!');
       return
     }
-  }
+  }, [userName, userMoney])
 
   return(
     <LoginSection>
@@ -36,10 +39,10 @@ const LoginPage = () => {
 
         <Field>
           <label htmlFor='moneyInput'>Você vai gastar quanto?</label>
-            <BrlCurrencyComponent placeholder='R$' />
+            <BRL_LOGIN_CURRENCY placeholder='R$' />
         </Field>
         
-        <button onClick={ logUser }>Vamos Começar!</button>
+        <button onClick={ handleLogUser }>Vamos Começar!</button>
       </InputFieldDiv>
 
     </LoginSection>
