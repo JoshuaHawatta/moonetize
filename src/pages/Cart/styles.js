@@ -4,7 +4,7 @@ export const CartSection = styled.section `
   background-color: red;
 `;
 
-export const AddItemDiv = styled.div `
+export const AddDiv = styled.div `
   background-color: blue;
 `;
 
