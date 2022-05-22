@@ -27,18 +27,19 @@ const LoginPage = () => {
 
       <InputFieldDiv>
         <Field>
-          <label htmlFor='nameInput'>Me fala seu nome!</label>
+          <label htmlFor='name-input'>Me fala seu nome!</label>
           <input 
             type='text'
+            id='name-input'
             autoComplete='off'
             placeholder='Exp: Zé'
             onChange={ e => setUserName(e.target.value) }
             value={ userName } />
-            <span className='errorMessage'>{ errorMessage }</span>
+            <span>{ errorMessage }</span>
         </Field>
 
         <Field>
-          <label htmlFor='moneyInput'>Você vai gastar quanto?</label>
+          <label htmlFor='money-input'>Você vai gastar quanto?</label>
             <BRL_LOGIN_CURRENCY placeholder='R$' />
         </Field>
         
