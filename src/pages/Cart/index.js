@@ -1,50 +1,80 @@
-import { useState, useCallback, memo } from 'react';
+import { useState, useCallback, memo, useContext } from 'react';
+import { AiFillDelete } from 'react-icons/ai';
+import { LoggedUserContext } from '../../contexts/Logged-user';
 import { CartSection, AddDiv, ProductInputDiv, TotalItemsDiv, EndPurchaseDiv } from './styles.js';
 
 const CartJSX = () => {
-  const userData = JSON.parse(sessionStorage.getItem('User')) || [];
-  const { userMoney } = userData;
-
   const [inputValues, setInputValues] = useState({});
   const [cartItems, setCartItems] = useState([]);
+  const [endPurchase, setEndPurchase] = useState(false);
+  const { setUserMoney, userMoney } = useContext(LoggedUserContext);
 
   const handleInputChange = useCallback(e => {
     const { name, value } = e.target;
     setInputValues({ ...inputValues, [name]: value })
   }, [inputValues])
 
-  const handleAddProduct = useCallback(item => {
+  const handleAdd = useCallback(item => {
     setCartItems(prevState => [...prevState, 
       {
         name: item.name,
         productPrice: item.productPrice,
         quantity: item.quantity,
-        id: Date.now()
+        id: Date.now(),
       }])
+
     setInputValues('');
   }, [cartItems])
 
-  const handleRemoveProduct = useCallback(id => {
+  const handleRemove = useCallback(id => {
     setCartItems(prevState => prevState.filter(item => item.id !== id));
   }, [cartItems])
 
-  const ShowTotalMoneySpent = () => {
-    const totalMoneySpent = cartItems
-      .map(item => Number(item.productPrice.replace(',', '.')))
-      .reduce((acc, currentItem) => acc + currentItem, 0);
+  const ShowCartProducts = () => {
+    const productsInCart = cartItems.map((item, index) => {
+      const { name, id, productPrice, quantity } = item;
+      const WHOLE_PRICE = Number(productPrice.replace(',', '.')) * quantity;
 
-    const numberWithComma = String(totalMoneySpent).replace('.', ',');
+      return(
+        <div key={ id }>
+          <p>{index +1}</p>
+          <h3>{ name }</h3>
+          <p>Valor: R${ productPrice } Quant.({ quantity }) Total: R${ WHOLE_PRICE.toFixed(2) }</p>
+          <button onClick={() => handleRemove(id) }><AiFillDelete /></button>
+        </div>
+      )
+    })
 
-    return(
-      <span>{ `R$${numberWithComma}` }</span>
+    return (
+      <>
+        { productsInCart }
+      </>
     )
   }
+
+  const ShowPurchasePrice = () => {
+    const cartTotalPrice = cartItems
+      .map(item => Number(item.productPrice.replace(',', '.') * item.quantity))
+      .reduce((acumulator, actualValue) => acumulator + actualValue, 0);
+
+    const showFullPrice = cartTotalPrice.toFixed(2).replace('.', ',');
+
+    return (
+      <span>preço final da compra:R${ showFullPrice }</span>
+    )
+  }
+
+  const HandleEndPurchase = useCallback(() => {
+    const cartTotalPrice = cartItems
+      .map(item => Number(item.productPrice.replace(',', '.') * item.quantity))
+      .reduce((acumulator, actualValue) => acumulator + actualValue, 0);
+
+    setUserMoney(prevState => [...prevState, userMoney[0] - cartTotalPrice])
+  }, [userMoney])
 
   return(
     <CartSection>
       <h1>Carrinho</h1>
-      <h2>{ `Dinheiro atual: R$${userMoney[1]}` }</h2>
-
       <AddDiv>
         <ProductInputDiv>
           <input 
@@ -55,43 +85,32 @@ const CartJSX = () => {
             autoComplete='off'
             placeholder='Doritos' />
 
-          <input 
-            type='number' 
+          <input type='number' 
             min='1' 
             name='quantity' 
             value={ inputValues.quantity || '' }
             onChange={ handleInputChange } />
 
+          <label htmlFor='product-price'>R$</label>
           <input 
             type='text'
+            id='product-price'
             name='productPrice'
             onChange={ handleInputChange }
             value={ inputValues.productPrice || '' }
             autoComplete='off'
             placeholder='00,00' />
 
-          <button onClick={() => handleAddProduct(inputValues) } >Adicionar</button>
+          <button onClick={ () => handleAdd(inputValues) } >Adicionar</button>
         </ProductInputDiv>        
       </AddDiv>
 
       <TotalItemsDiv>
-        { cartItems.map((item, index) => {
-            return(
-              <div key={ item.id }>
-                <p>{index +1}</p>
-                <h3>{ item.name }</h3>
-                <span>{ `Quant.(${item.quantity})` }</span>
-                <p>{ item.productPrice }</p>
-                <button onClick={() => handleRemoveProduct(item.id) }></button>
-              </div>
-            )
-          }) }
+        <ShowCartProducts />
 
         <EndPurchaseDiv>
-          <ShowTotalMoneySpent />
-        <button>Encerrar compra</button>
+          <ShowPurchasePrice />
         </EndPurchaseDiv>
-
       </TotalItemsDiv>
     </CartSection>
   )
