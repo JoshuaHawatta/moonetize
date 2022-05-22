@@ -28,6 +28,7 @@ export const BRL_LOGIN_CURRENCY = () => {
     <IntlCurrencyInput 
       currency="BRL" 
       name='login-currency'
+      id='money-input'
       config={ currencyConfig } 
       onChange={ handleChange } />
   )
