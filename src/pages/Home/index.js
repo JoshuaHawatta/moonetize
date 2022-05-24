@@ -15,10 +15,7 @@ import {
 } from './styles.js';
 
 const HomeJSX = () => {
-  const userData = JSON.parse(sessionStorage.getItem('User')) || [];
-  const { userName, userMoney } = userData;
-
-  const { userIsLogged } = useContext(LoggedUserContext);
+  const { userName, userIsLogged, userMoney } = useContext(LoggedUserContext);
   const { showMoneyAmmount, setShowMoneyAmmount } = useContext(ShowMoneyAmmountContext);
 
   const changeMoneyVisibility = useCallback(() => {
@@ -27,7 +24,7 @@ const HomeJSX = () => {
 
   if(!userIsLogged && sessionStorage.length === 0) {
     return(
-      <LoginPage /> 
+      <LoginPage />
     )
   }else {
     return (
@@ -35,7 +32,7 @@ const HomeJSX = () => {
         <UserHubSection>
           <UserDataDiv>
             <h1>Olá, { userName }!</h1>
-            <p>{ showMoneyAmmount ? userMoney[1] : '****' }</p>
+            <p>{ showMoneyAmmount ? `R$${ userMoney.toFixed(2) }` : '****' }</p>
           </UserDataDiv>
   
           <HideOrShowMoneyDiv>
