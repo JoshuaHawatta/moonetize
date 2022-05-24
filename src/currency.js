@@ -21,7 +21,7 @@ export const BRL_LOGIN_CURRENCY = () => {
 
   const handleChange = (event, value, maskedValue) => {
     event.preventDefault();
-    setUserMoney([value, maskedValue])
+    setUserMoney(value)
   };
 
   return(
