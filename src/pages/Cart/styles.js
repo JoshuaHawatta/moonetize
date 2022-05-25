@@ -4,16 +4,21 @@ export const CartSection = styled.section `
   background-color: red;
 `;
 
-export const AddDiv = styled.div `
+export const LeftSideDiv = styled.div `
   background-color: blue;
+
+  div {
+    background-color: green;
+  }
 `;
 
-export const ProductInputDiv = styled.div `
-  background-color: green;
-`;
-
-export const TotalItemsDiv = styled.div `
+export const RightSideDiv = styled.div `
   background-color: brown;
+`;
+
+export const BuyListDiv = styled.div `
+  background-color: cyan;
+
 `;
 
 export const EndPurchaseDiv = styled.div `
