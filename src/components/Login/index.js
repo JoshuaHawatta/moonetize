@@ -1,19 +1,16 @@
 import { memo, useState, useContext, useCallback } from 'react';
 import { nameRegex } from './regex.js';
 import { BRL_LOGIN_CURRENCY } from '../../currency';
-import { ShowOrHideHeaderContext } from '../../contexts/DisplayHeader';
-import { LoggedUserContext } from '../../contexts/Logged-user';
+import { LoggedUserContext } from '../../contexts/LoggedUser';
 import { LoginSection, InputFieldDiv, Field } from './styles.js';
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const { setLoggedUser, userName, setUserName, userMoney } = useContext(LoggedUserContext);
-  const { setDisplayHeader } = useContext(ShowOrHideHeaderContext);
 
   const handleLogUser = useCallback(() => {
     if(nameRegex.test(userName)) {
       setLoggedUser(true);
-      setDisplayHeader(true);
       sessionStorage.setItem('User', JSON.stringify({ userName, userMoney }));
     }else {
       setErrorMessage('Você precisa de no mínimo 1 caractér para fazer o login!');

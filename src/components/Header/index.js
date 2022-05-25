@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { ShowOrHideHeaderContext } from '../../contexts/DisplayHeader';
+import { LoggedUserContext } from '../../contexts/LoggedUser';
 import { Link } from 'react-router-dom';
 import './header.css';
 
 const Header = () => {
-  const { displayHeader } = useContext(ShowOrHideHeaderContext);
+  const { loggedUser } = useContext(LoggedUserContext);
 
-  if(!displayHeader && sessionStorage.length === 0) {
+  if(!loggedUser && sessionStorage.length === 0) {
     return (
       <>
       </>

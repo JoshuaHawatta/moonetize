@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import IntlCurrencyInput from 'react-intl-currency-input';
-import { LoggedUserContext } from './contexts/Logged-user';
+import { LoggedUserContext } from './contexts/LoggedUser';
 
 const currencyConfig = {
   locale: "pt-BR",
