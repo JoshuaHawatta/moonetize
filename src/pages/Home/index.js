@@ -1,6 +1,6 @@
 import { useContext, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
-import { LoggedUserContext } from '../../contexts/Logged-user';
+import { LoggedUserContext } from '../../contexts/LoggedUser';
 import { ShowMoneyAmmountContext } from '../../contexts/ShowMoney';
 import LoginPage from '../../components/Login';
 import { FaMoneyCheckAlt, FaShoppingCart, FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -32,7 +32,7 @@ const HomeJSX = () => {
         <UserHubSection>
           <UserDataDiv>
             <h1>Olá, { userName }!</h1>
-            <p>{ showMoneyAmmount ? `R$${ userMoney.toFixed(2) }` : '****' }</p>
+            <p>{ showMoneyAmmount ? `R$${ userMoney.toFixed(2).replace('.', ',') }` : '****' }</p>
           </UserDataDiv>
   
           <HideOrShowMoneyDiv>
