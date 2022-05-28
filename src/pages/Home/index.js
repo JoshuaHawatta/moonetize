@@ -2,6 +2,7 @@ import { useContext, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { LoggedUserContext } from '../../contexts/LoggedUser';
 import { ShowMoneyAmmountContext } from '../../contexts/ShowMoney';
+import { showMoneyAsCurrency } from '../../currency';
 import LoginPage from '../../components/Login';
 import { FaMoneyCheckAlt, FaShoppingCart, FaEye, FaEyeSlash } from 'react-icons/fa';
 
@@ -19,8 +20,8 @@ const HomeJSX = () => {
   const { showMoneyAmmount, setShowMoneyAmmount } = useContext(ShowMoneyAmmountContext);
 
   const changeMoneyVisibility = useCallback(() => {
-    showMoneyAmmount ? setShowMoneyAmmount(false) : setShowMoneyAmmount(true);
-  }, [showMoneyAmmount])
+    showMoneyAmmount ? setShowMoneyAmmount(false) : setShowMoneyAmmount(true)
+  }, [showMoneyAmmount, setShowMoneyAmmount])
 
   if(!userIsLogged && sessionStorage.length === 0) {
     return(
@@ -32,7 +33,7 @@ const HomeJSX = () => {
         <UserHubSection>
           <UserDataDiv>
             <h1>Olá, { userName }!</h1>
-            <p>{ showMoneyAmmount ? `R$${ userMoney.toFixed(2).replace('.', ',') }` : '****' }</p>
+            <p>{ showMoneyAmmount ? `${ showMoneyAsCurrency(userMoney) }` : '****' }</p>
           </UserDataDiv>
   
           <HideOrShowMoneyDiv>
