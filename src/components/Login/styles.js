@@ -75,5 +75,6 @@ export const Field = styled.div `
   span {
     padding-top: 1.5rem;
     font: 1.8rem 'Overpass', Arial, sans-serif;
+    color: var(--theme-color);
   }
 `;
