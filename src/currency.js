@@ -19,7 +19,7 @@ const currencyConfig = {
 export const BRL_LOGIN_CURRENCY = () => {
   const { setUserMoney } = useContext(LoggedUserContext);
 
-  const handleChange = (event, value, maskedValue) => {
+  const handleChange = (event, value, _) => {
     event.preventDefault();
     setUserMoney(value)
   };
@@ -32,4 +32,17 @@ export const BRL_LOGIN_CURRENCY = () => {
       config={ currencyConfig } 
       onChange={ handleChange } />
   )
+}
+
+export const numberConverter = string => parseFloat(string.replace(',', '.'));
+
+export const showMoneyAsCurrency = number => {
+  const BRL_FORMAT = new Intl.NumberFormat('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+
+  return BRL_FORMAT.format(number)
 }
