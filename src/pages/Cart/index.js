@@ -2,41 +2,52 @@
 import { useState, useCallback, memo, useContext } from 'react';
 import { ErrorMessagesContext } from '../../contexts/ErrorMessage';
 import { LoggedUserContext } from '../../contexts/LoggedUser';
+import { CartPriceContext } from '../../contexts/CartPrice';
 
 //MASKS_AND_REGEX
-import { showMoneyAsCurrency, numberConverter } from '../../currency';
-import { priceInputRegex, nameInputRegex } from './regex';
+import { showMoneyAsCurrency, CART_MASKED_PRICE_INPUT } from '../../currency';
+import { nameInputRegex } from './regex';
 
 //STYLING 
-import { AiFillDelete } from 'react-icons/ai';
-import { CartSection, LeftSideDiv, RightSideDiv, BuyListDiv, EndPurchaseDiv } from './styles.js';
+import { IoMdTrash } from 'react-icons/io';
+import { 
+  CartArticle,
+  UserInfoSection,
+  ScreenHalfsSection,
+  LeftSideDiv,
+  RightSideDiv,
+  BuyListDiv,
+  ProductDiv,
+  EndPurchaseDiv } from './styles.js';
 
 const CartJSX = () => {
-  const [inputValues, setInputValues] = useState({ name: '', price: '' });
+  const { cartPrice, setCartPrice } = useContext(CartPriceContext);
+  const { userMoney, setUserMoney } = useContext(LoggedUserContext);
+  const { errorMessage, setErrorMessage } = useContext(ErrorMessagesContext);
+
+  const [inputValues, setInputValues] = useState({});
   const [products, setProducts] = useState([]);
   const [endPurchase, setEndpurchase] = useState(false);
 
-  const { errorMessage, setErrorMessage } = useContext(ErrorMessagesContext);
-  const { userMoney, setUserMoney } = useContext(LoggedUserContext);
-
   const handleInputChange = e => setInputValues({...inputValues, [e.target.name]: e.target.value});
 
-  const handleAdd = useCallback(input => {
-    if(nameInputRegex.test(inputValues.name) && priceInputRegex.test(inputValues.price)) {
-      setProducts(state => [...state, { name: input.name, price: input.price, id: Date.now() }]);
+  const handleAdd = useCallback((input) => {
+    if(nameInputRegex.test(input.name) && cartPrice !== 0) {
+      setProducts(state => [...state, { name: input.name, price: cartPrice, id: Date.now() }]);
       
-      setInputValues({ name: '', price: '' });
+      setInputValues({ name: '' });
+      setCartPrice(0);
       setEndpurchase(false);
       setErrorMessage('')
     }else {
-      setErrorMessage('Preencha todos os campos para adicionar o produto!')
+      setErrorMessage('Primeiro coloque o valor, depois o nome e aí adicione no seu carrinho!')
       return
     }
-  }, [inputValues.name, inputValues.price, setErrorMessage])
+  }, [inputValues.name, inputValues.price, setErrorMessage, setCartPrice])
 
   const handleRemove = id => setProducts(state => state.filter(item => item.id !== id));
 
-  const TOTAL_PRICE = products.reduce((pile, accItem) => pile + numberConverter(accItem.price), 0);
+  const TOTAL_PRICE = products.reduce((acumulator, item) => acumulator + item.price, 0);
 
   const handleEndPurchase = useCallback(() => {
     setUserMoney(userMoney - TOTAL_PRICE);
@@ -45,63 +56,56 @@ const CartJSX = () => {
   }, [TOTAL_PRICE, userMoney, setUserMoney]);
 
   return(
-    <CartSection>
-      <h1>Carrinho</h1>
-      <h2>Dinheiro: { showMoneyAsCurrency(userMoney) }</h2>
+    <CartArticle>
+      <UserInfoSection>
+        <h1>{ showMoneyAsCurrency(userMoney) }</h1>
+      </UserInfoSection>
+
+    <ScreenHalfsSection>
 
       <LeftSideDiv>
-        <p>Coloque os valores exatos para não haver diferença do caixa para o seu Carrinho!</p>
-        <label htmlFor='product-name'>Produto</label>
+        <label htmlFor='product-price'>Valor do produto</label>
+        <CART_MASKED_PRICE_INPUT name='price' id='product-price' />
+
+        <label htmlFor='product-name'>Nome do produto</label>
         <input
           id='product-name'
           type='text'
           name='name'
           onChange={ handleInputChange }
-          value={ inputValues.name }
+          value={ inputValues.name || ''}
           autoComplete='off'
           placeholder='ex: Mouse Gamer' />
-      
-          <label htmlFor='product-price'>R$</label>
-          <input 
-            type='text'
-            id='product-price'
-            name='price'
-            onChange={ handleInputChange }
-            value={ inputValues.price }
-            autoComplete='off'
-            placeholder='ex: 200' />
-          <button onClick={ () => handleAdd(inputValues) } >Adicionar</button>
+
+          <button onClick={ () => handleAdd(inputValues) } >Adicionar produto</button>
           <span>{ errorMessage }</span>
       </LeftSideDiv>
 
-      <RightSideDiv>
-        <BuyListDiv>
-          {
-            products.map((item, index) => {
-              const { name, id, price } = item;
-
+    { products.length === 0 
+      ? null 
+      : <RightSideDiv>
+          <BuyListDiv>
+            { products.map(({ name, id, price })=> {
               return(
-                <div key={ id }>
-                  <span>{ index +1 }</span>
-                  <h3>{ name } | Valor: { showMoneyAsCurrency(numberConverter(price)) }</h3>
-                  <button onClick={ () => handleRemove(id) }><AiFillDelete /></button>
-                </div>
-              )
-            })
-          }
-        </BuyListDiv>
-
-        <EndPurchaseDiv>
-          { products.length === 0 || endPurchase === true 
-            ? <></>
-            : <>
-                <span>Valor da compra: { showMoneyAsCurrency(TOTAL_PRICE) }</span>
-                <button onClick={ () => handleEndPurchase() }>Encerrar compra</button>
-              </> 
-          }
-        </EndPurchaseDiv>
-      </RightSideDiv>
-    </CartSection>
+                <ProductDiv key={ id }>
+                  <h3>{ name } { showMoneyAsCurrency(price) }</h3>
+                  <button onClick={ () => handleRemove(id) }><IoMdTrash /></button>
+                </ProductDiv>
+              )}) }
+            </BuyListDiv>
+    
+            <EndPurchaseDiv>
+              { endPurchase === true 
+                ? null
+                : <>
+                    <span>{ showMoneyAsCurrency(TOTAL_PRICE) }</span>
+                    <button onClick={ () => handleEndPurchase() }>Encerrar compra</button>
+                  </> 
+              }
+            </EndPurchaseDiv>
+        </RightSideDiv> } 
+    </ScreenHalfsSection>
+    </CartArticle>
   )
 }
 
