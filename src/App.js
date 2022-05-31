@@ -10,20 +10,23 @@ import Header from './components/Header';
 import LoggedUserProvider from './contexts/LoggedUser';
 import ShowMoneyAmmountProvider from './contexts/ShowMoney';
 import ErrorMessagesProvider from './contexts/ErrorMessage';
+import CartPriceProvider from './contexts/CartPrice';
 
 import './setup.css';
 
 const App = () => {
 
   return(
-    <LoggedUserProvider>    
+    <LoggedUserProvider>
       <ShowMoneyAmmountProvider>
         <ErrorMessagesProvider>
-          <Router>
-            <Header />
-            <PAGES_URLS />
-            <Footer />
-          </Router>
+          <CartPriceProvider>
+            <Router>
+              <Header />
+              <PAGES_URLS />
+              <Footer />
+            </Router>
+          </CartPriceProvider>
         </ErrorMessagesProvider>
       </ShowMoneyAmmountProvider>
     </LoggedUserProvider>  

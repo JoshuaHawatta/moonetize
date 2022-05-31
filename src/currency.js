@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import IntlCurrencyInput from 'react-intl-currency-input';
 import { LoggedUserContext } from './contexts/LoggedUser';
+import { CartPriceContext } from './contexts/CartPrice';
 
 const currencyConfig = {
   locale: "pt-BR",
@@ -34,7 +35,21 @@ export const BRL_LOGIN_CURRENCY = () => {
   )
 }
 
-export const numberConverter = string => parseFloat(string.replace(',', '.'));
+export const CART_MASKED_PRICE_INPUT = ({ name, id }) => {
+  const { cartPrice, setCartPrice } = useContext(CartPriceContext);
+
+  const handleChange = (event, value, maskedValue) =>setCartPrice(value);
+
+  return(
+    <IntlCurrencyInput 
+      currency="BRL" 
+      name={ name }
+      id={ id }
+      config={ currencyConfig } 
+      onChange={ handleChange }
+      value={ cartPrice } />
+  )
+}
 
 export const showMoneyAsCurrency = number => {
   const BRL_FORMAT = new Intl.NumberFormat('pt-br', {
