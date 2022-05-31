@@ -1,30 +1,31 @@
 import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import './footer.css';
+
+import { FooterWrapper, SocialMediaSection } from './styles';
 
 const Footer = () => {
   return(
-    <footer>
+    <FooterWrapper>
       <a href='https://www.linkedin.com/in/joshua-hawatta' target='_blank' rel='norefferer'>
         Feito por Joshua Hawatta
       </a>
 
-      <div className='social-media'>
+      <SocialMediaSection>
         <a href='https://www.linkedin.com/in/joshua-hawatta' target='_blank'rel='norefferer'>
-          <BsLinkedin className='icons' />
+          <BsLinkedin />
           LinkedIn</a>
 
         <a href='https://www.instagram.com/joshuahawatta' target='_blank' rel='norefferer'>
-          <BsInstagram className='icons' />
+          <BsInstagram />
           Instagram</a>
 
         <a href='https://github.com/JoshuaHawatta' target='_blank' rel='norefferer'>
-          <BsGithub className='icons' />
+          <BsGithub />
           GitHub</a>
-      </div>
+      </SocialMediaSection>
 
       <Link to='/privacy-policy' rel='norefferer'>Política de privacidade</Link>
-    </footer>
+    </FooterWrapper>
   )
 }
 
