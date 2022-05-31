@@ -14,7 +14,6 @@ export const LoginSection = styled.section `
     font-size: 4.8rem;
     margin: 0.2rem 0;
   }
-
 `;
 
 export const InputFieldDiv = styled.div `
@@ -31,7 +30,8 @@ export const InputFieldDiv = styled.div `
     transition: all 0.2s;
     color: var(--theme-color);
     background-color: var(--background-color);
-
+    
+    /*EFFECTS*/
     :hover {
       cursor: pointer;
       color: var(--background-color);
@@ -63,6 +63,7 @@ export const Field = styled.div `
     color: var(--theme-color);
     border-bottom: 0.2rem solid var(--theme-color);
 
+    /*EFFECTS*/
      &:focus{
       font-size: 2.5rem;
       color: var(--background-color);
