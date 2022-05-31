@@ -1,13 +1,13 @@
-import './button.css';
+import { ScrollUpSection } from './styles.js';
 import { IoIosArrowUp } from 'react-icons/io';
 
 const ScrollUpButton = () => {
   const scrollUp = () => window.scrollTo({ top: 0,behavior: 'smooth' })
 
   return (
-    <div className='scrollUpDiv'>
-      <button onClick={ scrollUp } className="btn-scroll"><IoIosArrowUp /></button>
-    </div>
+    <ScrollUpSection>
+      <button onClick={ scrollUp }><IoIosArrowUp /></button>
+    </ScrollUpSection>
   )
 }
 
