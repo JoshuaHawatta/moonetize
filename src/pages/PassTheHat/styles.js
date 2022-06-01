@@ -1,4 +1,6 @@
-export const TemporaryDiv = styled.div `
+import styled from 'styled-components';
+
+export const Temporarydiv = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,5 +8,8 @@ export const TemporaryDiv = styled.div `
   height: 70vh;
   margin: 0 auto;
 
-  h1 { font: 5rem 'Overpass', Arial, sans-serif; }
+  h1 {
+    font: 5rem 'Overpass', Arial, sans-serif;
+    color: var(--theme-color);
+    }
 `;

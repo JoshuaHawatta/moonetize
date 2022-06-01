@@ -18,7 +18,7 @@ const LoginPage = () => {
       setErrorMessage('Você precisa de no mínimo 1 caractér para fazer o login!');
       return
     }
-  }, [userName, userMoney])
+  }, [userName, userMoney, setErrorMessage, setLoggedUser])
 
   return(
     <LoginSection>

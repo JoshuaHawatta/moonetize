@@ -40,10 +40,10 @@ const CartJSX = () => {
       setEndpurchase(false);
       setErrorMessage('')
     }else {
-      setErrorMessage('Primeiro coloque o valor, depois o nome e aí adicione no seu carrinho!')
+      setErrorMessage('Preencha todos os campos para adicionar seu produto!')
       return
     }
-  }, [inputValues.name, inputValues.price, setErrorMessage, setCartPrice])
+  }, [setErrorMessage, setCartPrice, cartPrice])
 
   const handleRemove = id => setProducts(state => state.filter(item => item.id !== id));
 
@@ -62,10 +62,7 @@ const CartJSX = () => {
       </UserInfoSection>
 
     <ScreenHalfsSection>
-
       <LeftSideDiv>
-        <label htmlFor='product-price'>Valor do produto</label>
-        <CART_MASKED_PRICE_INPUT name='price' id='product-price' />
 
         <label htmlFor='product-name'>Nome do produto</label>
         <input
@@ -76,6 +73,9 @@ const CartJSX = () => {
           value={ inputValues.name || ''}
           autoComplete='off'
           placeholder='ex: Mouse Gamer' />
+
+        <label htmlFor='product-price'>Valor do produto</label>
+        <CART_MASKED_PRICE_INPUT name='price' id='product-price' />
 
           <button onClick={ () => handleAdd(inputValues) } >Adicionar produto</button>
           <span>{ errorMessage }</span>

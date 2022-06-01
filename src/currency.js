@@ -38,7 +38,7 @@ export const BRL_LOGIN_CURRENCY = () => {
 export const CART_MASKED_PRICE_INPUT = ({ name, id }) => {
   const { cartPrice, setCartPrice } = useContext(CartPriceContext);
 
-  const handleChange = (event, value, maskedValue) =>setCartPrice(value);
+  const handleChange = (event, value, maskedValue) => setCartPrice(value);
 
   return(
     <IntlCurrencyInput 
